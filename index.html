@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>美女欢迎圆哥小游戏</title>
+<style>
+  body {
+    margin: 0; 
+    background: #fff0f6;
+    font-family: "Microsoft YaHei", sans-serif;
+    text-align: center;
+    color: #d6336c;
+    user-select: none;
+  }
+  h1 {
+    margin-top: 30px;
+  }
+  #welcomeImage {
+    margin-top: 40px;
+    width: 300px;
+    max-width: 80vw;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(214, 51, 108, 0.7);
+    transition: transform 0.3s ease;
+  }
+  #welcomeImage:hover {
+    transform: scale(1.05);
+  }
+  #messageBox {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #b03a58;
+  }
+  #gameArea {
+    margin-top: 40px;
+  }
+  #btnGreet {
+    margin-top: 30px;
+    background-color: #d6336c;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #btnGreet:hover {
+    background-color: #a82a4d;
+  }
+</style>
+</head>
+<body>
+
+<h1>美女欢迎圆哥！</h1>
+
+<audio id="bgMusic" src="ribenluo.mp3" loop></audio>
+
+<img id="welcomeImage" src="beauty.jpg" alt="美女欢迎圆哥" title="点击美女，看看欢迎话语！" />
+
+<div id="messageBox">点击美女试试吧！</div>
+
+<div id="gameArea">
+  <button id="btnGreet">送给圆哥一朵玫瑰🌹</button>
+</div>
+
+<script>
+  // 自动播放音乐
+  window.onload = function () {
+    const bgMusic = document.getElementById('bgMusic');
+    // 尝试播放，部分浏览器可能需要用户交互才能播放
+    bgMusic.play().catch(() => {
+      // 提示用户点击开始播放
+      document.getElementById('messageBox').textContent = '请点击美女或按钮开始音乐~';
+    });
+  };
+
+  // 图片点击事件，显示欢迎弹窗
+  document.getElementById('welcomeImage').addEventListener('click', () => {
+    alert('圆哥，美女来欢迎你啦！祝你游戏开心，天天开心！🎉');
+    const msgBox = document.getElementById('messageBox');
+    msgBox.textContent = '美女说：欢迎圆哥，祝你幸福满满！';
+  });
+
+  // 按钮点击，送花互动
+  document.getElementById('btnGreet').addEventListener('click', () => {
+    alert('圆哥收到一朵玫瑰，美女在旁边微笑😊');
+    const msgBox = document.getElementById('messageBox');
+    msgBox.textContent = '圆哥，花已送达，祝你好运连连！';
+  });
+</script>
+
+</body>
+</html>
